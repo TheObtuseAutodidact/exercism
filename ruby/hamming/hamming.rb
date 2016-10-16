@@ -1,8 +1,8 @@
 class Hamming
-  VERSION = 1
-  def self.compute(strand_1, strand_2)
+  VERSION = 3
+  def self.compute(strand1, strand2)
     raise ArgumentError,
-      "Strands must be of equal length" if strand_1.length != strand_2.length
-    strand_1.chars.zip(strand_2.chars).select { |k, v| k != v }.length
+      "Strands must be of equal length" unless strand1.length == strand2.length
+    strand1.chars.zip(strand2.chars).select { |n1, n2| n1 != n2 }.count
   end
 end
