@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'time'
+require 'date'
 require_relative 'gigasecond'
 
 # Test data version: 9d027ad
@@ -35,6 +36,10 @@ class GigasecondTest < Minitest::Test
   def test_with_your_birthday
     result = Gigasecond.from(Time.utc(1978, 6, 15, 23, 30, 0))
     assert_equal Time.utc(2010, 02, 22, 1, 16, 40), result
+  end
+
+  def test_with_date_object
+    assert_raises(TypeError) { Gigasecond.from(Date.new) }
   end
 
   # Problems in exercism evolve over time, as we find better ways to ask

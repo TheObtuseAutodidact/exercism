@@ -1,3 +1,3 @@
-module BookKeeping
-  VERSION = File.read('.version').to_i
-end
+# module BookKeeping
+#   VERSION = File.read('.version').to_i
+# end
