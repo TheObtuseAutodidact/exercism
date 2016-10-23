@@ -38,9 +38,9 @@ class GigasecondTest < Minitest::Test
     assert_equal Time.utc(2010, 02, 22, 1, 16, 40), result
   end
 
-  def test_with_date_object
-    assert_raises(TypeError) { Gigasecond.from(Date.new) }
-  end
+  # def test_with_date_object # mine from v2
+  #   assert_raises(TypeError) { Gigasecond.from(Date.new) }
+  # end
 
   # Problems in exercism evolve over time, as we find better ways to ask
   # questions.
