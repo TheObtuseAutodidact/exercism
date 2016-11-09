@@ -2,7 +2,6 @@
 
 class Complement
 
-  NUCLEOTIDES = ["GCTA"]
   def self.of_dna(string)
     string.chars.collect do |nucleotide|
       case nucleotide
