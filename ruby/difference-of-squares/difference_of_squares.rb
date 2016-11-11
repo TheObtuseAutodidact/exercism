@@ -1,22 +1,22 @@
 class Squares
   def initialize(n)
-    @base_num = n
+    @base_number = n
   end
 
-  def base_num
-    @base_num
+  def base_number
+    @base_number
   end
 
   def square_of_sum
-    ((1..self.base_num).reduce(:+) || 0)**2
+    ((1..base_number).reduce(:+) || 0)**2
   end
 
   def sum_of_squares
-    (1..self.base_num).reduce { |sum, i| sum += i**2 } || 0
+    (1..base_number).reduce { |sum, i| sum += i**2 } || 0
   end
 
   def difference
-    self.square_of_sum - self.sum_of_squares
+    square_of_sum - sum_of_squares
   end
 end
 
