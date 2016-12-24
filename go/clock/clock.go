@@ -9,7 +9,7 @@ type Clock struct {
 	Minute int
 }
 
-func totalMinCalc(hour, min int) (int, int) {
+func totalTimeCalc(hour, min int) (int, int) {
 	hours := min / 60
 	minutes := min % 60
 
@@ -28,7 +28,7 @@ func totalMinCalc(hour, min int) (int, int) {
 }
 
 func New(hour, minute int) Clock {
-	hour, minute = totalMinCalc(hour, minute)
+	hour, minute = totalTimeCalc(hour, minute)
 	return Clock{hour, minute}
 }
 
@@ -37,8 +37,6 @@ func (c Clock) String() string {
 }
 
 func (c Clock) Add(minutes int) Clock {
-	hour, minute := c.Hour, c.Minute
-	h, m := totalMinCalc(hour, (minute + minutes))
-	c.Hour, c.Minute = h, m
-	return c
+	hour, minute := c.Hour, (c.Minute + minutes)
+	return New(totalTimeCalc(hour, minute))
 }
