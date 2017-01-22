@@ -10,11 +10,11 @@ func Convert(i int) string {
 	switch {
 	case (i%3 == 0) && (i%5 == 0) && (i%7 == 0):
 		return "PlingPlangPlong"
-	case (i%3 == 0) && (i%7 == 0):
+	case (i%3 == 0) && (i%5 != 0) && (i%7 == 0):
 		return "PlingPlong"
-	case (i%3 == 0) && (i%5 == 0):
+	case (i%3 == 0) && (i%5 == 0) && (i%7 != 0):
 		return "PlingPlang"
-	case (i%5 == 0) && (i%7 == 0):
+	case (i%3 != 0) && (i%5 == 0) && (i%7 == 0):
 		return "PlangPlong"
 	case i%3 == 0:
 		return "Pling"
