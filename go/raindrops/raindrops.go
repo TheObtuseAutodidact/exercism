@@ -1,30 +1,22 @@
 package raindrops
 
-import (
-	"strconv"
-)
+import "strconv"
 
 const testVersion = 2
 
 func Convert(i int) string {
-	switch {
-	case (i%3 == 0) && (i%5 == 0) && (i%7 == 0):
-		return "PlingPlangPlong"
-	case (i%3 == 0) && (i%5 != 0) && (i%7 == 0):
-		return "PlingPlong"
-	case (i%3 == 0) && (i%5 == 0) && (i%7 != 0):
-		return "PlingPlang"
-	case (i%3 != 0) && (i%5 == 0) && (i%7 == 0):
-		return "PlangPlong"
-	case i%3 == 0:
-		return "Pling"
-	case i%5 == 0:
-		return "Plang"
-	case i%7 == 0:
-		return "Plong"
-	default:
-		return strconv.Itoa(i)
+	var plingPlangPlong string
+	if i%3 == 0 {
+		plingPlangPlong += "Pling"
 	}
+	if i%5 == 0 {
+		plingPlangPlong += "Plang"
+	}
+	if i%7 == 0 {
+		plingPlangPlong += "Plong"
+	}
+	if plingPlangPlong == "" {
+		plingPlangPlong += strconv.Itoa(i)
+	}
+	return plingPlangPlong
 }
-
-// The test program has a benchmark too.  How fast does your Convert convert?
