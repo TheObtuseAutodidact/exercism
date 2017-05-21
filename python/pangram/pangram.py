@@ -5,6 +5,6 @@ ALPHABET = string.ascii_lowercase
 def is_pangram(my_string):
     my_string = my_string.lower()
     for letter in ALPHABET:
-        if my_string.count(letter) < 1:
+        if not letter in my_string:
             return False
     return True
