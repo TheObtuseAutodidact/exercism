@@ -27,7 +27,7 @@ PhoneNumber.prototype.toString = function() {
         return "(" + this.num.slice(0, 3) + ") " + this.num.slice(3, 6) + "-" + this.num.slice(6)
     }
     if (this.num.length === 11 && this.num[0] === "1") {
-        return this.num.slice(1, 4);
+        return "(" + this.num.slice(1, 4) + ") " + this.num.slice(4, 7) + "-" + this.num.slice(7)
     }
     return "000"
 }
