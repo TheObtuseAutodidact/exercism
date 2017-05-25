@@ -4,14 +4,14 @@ var Pangram = function(input) {
 
 Pangram.prototype.isPangram = function() {
     var solution = {};
-    for(i=0; i<this.string.length; i++) {
-        if (this.string[i].match(/[a-z]/)) {
-            solution[this.string[i]] = 1;
+    this.string.split("").forEach(function(i) {
+        if (i.match(/[a-z]/)) {
+            solution[i] = 1
         }
-    }
+    })
     if (Object.keys(solution).length == 26) { // length of alphabet
         return true
-    } 
+    }
     return false
 }
 
