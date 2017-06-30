@@ -1,21 +1,13 @@
 var keep = function(collection, callback) {
-    var keep_collection = [];
-    for (var i = 0; i < collection.length; i++) {
-        if (callback(collection[i])) {
-            keep_collection.push(collection[i])
-        }
-    }
-    return keep_collection
+    return collection.filter(function(item) {
+        return callback(item)
+    })
 };
 
 var discard = function(collection, callback) {
-    var discard_collection = [];
-    for (var i = 0; i < collection.length; i++) {
-        if (!callback(collection[i])) {
-            discard_collection.push(collection[i])
-        }
-    }
-    return discard_collection
+    return collection.filter(function(item) {
+        return !callback(item)
+    })
 };
 
 module.exports = { keep, discard };
