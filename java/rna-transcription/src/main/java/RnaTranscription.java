@@ -1,28 +1,19 @@
+import java.util.HashMap;
+
 public class RnaTranscription {
+
     public String transcribe(String dnaStrand) {
         String solution = "";
-        String qualifyingStrand = "GCTA";
+        HashMap<String, String> nTideMap = new HashMap<>();
+        nTideMap.put("G","C");
+        nTideMap.put("C","G");
+        nTideMap.put("T","A");
+        nTideMap.put("A","U");
+
         for (int i=0; i < dnaStrand.length(); i++) {
             String charToString = Character.toString(dnaStrand.charAt(i));
-
-            if (charToString.equalsIgnoreCase("G")) {
-                solution = solution.concat("C");
-            }
-            if (charToString.equalsIgnoreCase("C")) {
-                solution = solution.concat("G");
-            }
-            if (charToString.equalsIgnoreCase("T")) {
-                solution = solution.concat("A");
-            }
-            if (charToString.equalsIgnoreCase("A")) {
-                solution = solution.concat("U");
-            }
+            solution += nTideMap.get(charToString);
         }
         return solution;
     }
 }
-
-// * `G` -> `C`
-// * `C` -> `G`
-// * `T` -> `A`
-// * `A` -> `U`
