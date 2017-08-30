@@ -15,12 +15,8 @@ class NaturalNumber {
     }
 
     public Classification getClassification() {
-        list = new ArrayList<Integer>();
-        for (int i = 1; i < this.number; i++) {
-            if (this.number % i == 0) {
-                list.add(i);
-            }
-        }
+        list = generateList();
+
         if (isPerfect()) {
             return Classification.PERFECT;
         }
@@ -41,17 +37,21 @@ class NaturalNumber {
     }
 
     private boolean isPerfect() {
-        if (this.number == this.sumList()){
-            return true;
-        }
-        return false;
+        return (this.number == this.sumList());
     }
 
     private boolean isAbundant() {
-        if (this.sumList() > this.number) {
-            return true;
+        return (this.sumList() > this.number);
+    }
+
+    private List<Integer> generateList() {
+        List<Integer> generatedList = new ArrayList<Integer>();
+        for (int i = 1; i < this.number; i++) {
+            if (this.number % i == 0) {
+                generatedList.add(i);
+            }
         }
-        return false;
+        return generatedList;
     }
 
 }

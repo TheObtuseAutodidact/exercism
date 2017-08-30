@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="NaturalNumberTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2017-08-29T06:16:49" hostname="Lennys-MacBook-Pro-7.local" time="0.429">
+<testsuite name="NaturalNumberTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2017-08-30T04:48:12" hostname="Lennys-MacBook-Pro-7.local" time="0.388">
   <properties/>
-  <testcase name="testThatNonNegativeIntegerIsRejected" classname="NaturalNumberTest" time="0.011"/>
+  <testcase name="testThatNonNegativeIntegerIsRejected" classname="NaturalNumberTest" time="0.01"/>
   <testcase name="testSmallAbundantNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.001"/>
-  <testcase name="testMediumAbundantNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
-  <testcase name="testLargeAbundantNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.14"/>
-  <testcase name="testSmallestPrimeDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
+  <testcase name="testMediumAbundantNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.001"/>
+  <testcase name="testLargeAbundantNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.136"/>
+  <testcase name="testSmallestPrimeDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.001"/>
   <testcase name="testSmallestNonPrimeDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
-  <testcase name="testThatOneIsCorrectlyClassifiedAsDeficient" classname="NaturalNumberTest" time="0.0"/>
+  <testcase name="testThatOneIsCorrectlyClassifiedAsDeficient" classname="NaturalNumberTest" time="0.001"/>
   <testcase name="testSmallPerfectNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
-  <testcase name="testThatNegativeIntegerIsRejected" classname="NaturalNumberTest" time="0.0"/>
-  <testcase name="testLargePerfectNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.133"/>
-  <testcase name="testLargeDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.139"/>
-  <testcase name="testMediumDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
+  <testcase name="testThatNegativeIntegerIsRejected" classname="NaturalNumberTest" time="0.001"/>
+  <testcase name="testLargePerfectNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.12"/>
+  <testcase name="testLargeDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.113"/>
+  <testcase name="testMediumDeficientNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.001"/>
   <testcase name="testMediumPerfectNumberIsClassifiedCorrectly" classname="NaturalNumberTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
