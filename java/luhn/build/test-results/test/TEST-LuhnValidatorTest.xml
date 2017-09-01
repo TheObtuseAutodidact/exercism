@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LuhnValidatorTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2017-09-01T05:48:58" hostname="Lennys-MacBook-Pro-7.local" time="0.041">
+  <properties/>
+  <testcase name="testThatDoublingNineIsHandledCorrectly" classname="LuhnValidatorTest" time="0.026"/>
+  <testcase name="testThatASimpleValidNumberIsIdentifiedAsValid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatAddingANonDigitCharacterToAValidStringInvalidatesTheString" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatTheStringConsistingOfASingleZeroIsInvalid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatSingleDigitStringIsNotValid" classname="LuhnValidatorTest" time="0.0"/>
+  <testcase name="testThatAnInvalidCreditCardIsIdentifiedAsInvalid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatTheStringConsistingOfASpaceAndASingleZeroIsInvalid" classname="LuhnValidatorTest" time="0.0"/>
+  <testcase name="testThatStringContainingSymbolsIsInvalid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatAnInvalidCanadianSocialInsuranceNumberIsIdentifiedAsInvalid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatStringContainingMultipleZerosIsValid" classname="LuhnValidatorTest" time="0.001"/>
+  <testcase name="testThatStringContainingPunctuationIsInvalid" classname="LuhnValidatorTest" time="0.0"/>
+  <testcase name="testThatAValidCanadianSocialInsuranceNumberIsIdentifiedAsValidV1" classname="LuhnValidatorTest" time="0.002"/>
+  <testcase name="testThatAValidCanadianSocialInsuranceNumberIsIdentifiedAsValidV2" classname="LuhnValidatorTest" time="0.001"/>
+  <system-out><![CDATA[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[1, 9, 0]
+10
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[9, 1]
+10
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[6, 7, 2, 8, 5, 8, 10, 3, 4, 0]
+53
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[9, 3, 5, 0, 2, 1, 3, 5, 2, 6, 2, 2, 3, 5, 2, 7]
+57
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[5, 7, 2, -2, 4, 8, 4, -2, 5, 1, 0]
+32
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[7, 7, 2, 8, 5, 8, 6, 8, 0]
+51
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[0, 0, 0, 0, 0]
+0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[5, 7, 2, -2, 4, 8, 4, -2, 5, 1, 0]
+32
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[6, 7, 2, 8, 5, 8, 6, 8, 0]
+50
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[5, 7, 2, 8, 4, 8, 5, 1, 0]
+40
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
