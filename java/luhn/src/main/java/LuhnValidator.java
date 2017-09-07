@@ -1,42 +1,32 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-
 class LuhnValidator {
 
     boolean isValid(String candidate) {
-        List<Integer> digits = new ArrayList<>();
+        int sumTotal = 0;
         candidate = candidate.replaceAll("\\s","");
         if (candidate.length() < 2) {
             return false;
         }
         candidate = reverse(candidate);
         for (int i = 0; i < candidate.length(); i++) {
+            if (!Character.isDigit(candidate.charAt(i))) { return false; }
+
             Integer num = Character.getNumericValue(candidate.charAt(i));
             if (i % 2 == 0) {
-                digits.add(num);
+                sumTotal += num;
             } else {
-                num *= 2;
-                if ( num > 9) {
-                    num -= 9;
-                }
-                digits.add(num);
+                sumTotal += ((num * 2) > 9) ? num * 2 - 9 : num * 2;
             }
         }
-        Integer sum = 0;
-        for (int digit : digits) {
-            sum += digit;
-        }
-        System.out.println(sum);
-        return (sum % 10 == 0);
+
+        return (sumTotal % 10 == 0);
     }
 
     private String reverse(String myNumString) {
-        String newString = "";
+        StringBuilder newString = new StringBuilder();
         for (String letter : myNumString.split("")) {
-            newString = letter + newString;
+            newString.insert(0,letter);
         }
-        return newString;
+        return newString.toString();
     }
 
 }
