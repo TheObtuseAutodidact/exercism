@@ -1,19 +1,30 @@
 class Grains
 
-  SQUARE_MAX = 64
-  SQUARE_MIN = 1
+  VALID_SQUARE_RANGE = (1..64)
+
 
   def self.square(num)
-    if !(SQUARE_MIN..SQUARE_MAX).include?(num)
-      raise ArgumentError.new("Out of Range: Valid range [1 to 64] inclusive")
-    end 
+    fail_if_out_of_range(num)
     2**(num-1)
   end
 
   def self.total
-    (SQUARE_MIN..SQUARE_MAX).reduce { |sum, num| sum += square(num) }
+    (VALID_SQUARE_RANGE).reduce { |sum, num| sum += square(num) }
   end
 
+  def self.fail_if_out_of_range(num)
+    unless (VALID_SQUARE_RANGE).include?(num)
+      raise OffBoardError.new(
+        "Out of Range:" +
+        "Valid range [#{VALID_SQUARE_RANGE.min} to " +
+        "#{VALID_SQUARE_RANGE.max}] inclusive"
+      )
+    end
+  end
+
+end
+
+class OffBoardError < ArgumentError
 end
 
 module BookKeeping
