@@ -9,7 +9,8 @@ class Grains
   end
 
   def self.total
-    VALID_SQUARE_RANGE.reduce { |sum, num| sum + square(num) }
+    # equal to VALID_SQUARE_RANGE.reduce { |sum, num| sum + square(num) }
+    2**VALID_SQUARE_RANGE.max - 1
   end
 
   private_class_method
