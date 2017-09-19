@@ -1,11 +1,10 @@
-require 'date'
 require 'time'
 
+# Return time object one gigasecond after date/time object given as parameter
 class Gigasecond
   GIGASECOND = 1e9
   def self.from(time)
-    time = time.to_time if time.is_a?(Date) or time.is_a?(DateTime)
-    time + GIGASECOND
+    time.to_time + GIGASECOND
   end
 end
 
