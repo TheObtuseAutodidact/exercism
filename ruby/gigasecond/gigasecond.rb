@@ -1,5 +1,3 @@
-require 'time'
-
 # Return time object one gigasecond after date/time object given as parameter
 class Gigasecond
   GIGASECOND = 1e9
