@@ -1,4 +1,4 @@
-# Return time object one gigasecond after date/time object given as parameter
+# Return time object one gigasecond after time object given as parameter
 class Gigasecond
   GIGASECOND = 1e9
   def self.from(time)
