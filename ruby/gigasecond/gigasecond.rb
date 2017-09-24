@@ -2,7 +2,7 @@
 class Gigasecond
   GIGASECOND = 1e9
   def self.from(time)
-    time.to_time + GIGASECOND
+    time + GIGASECOND
   end
 end
 
