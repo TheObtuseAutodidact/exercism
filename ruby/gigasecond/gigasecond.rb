@@ -1,8 +1,8 @@
-# Return time object one gigasecond after time object given as parameter
+# Return the moment one gigasecond after the moment given as parameter
 class Gigasecond
-  GIGASECOND = 1e9
-  def self.from(time)
-    time + GIGASECOND
+  GIGASECOND = 1_000_000_000
+  def self.from(moment)
+    moment + GIGASECOND
   end
 end
 
