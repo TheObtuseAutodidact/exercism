@@ -1,17 +1,8 @@
 class RunLengthEncoding
   def self.encode(str)
-    encoded_str = ''
-    letter_count = 1
-    str.length.times do |i|
-      if str[i] == str[i + 1]
-        letter_count += 1
-      else
-        encoded_str += letter_count.to_s if letter_count > 1
-        encoded_str += str[i]
-        letter_count = 1
-      end
-    end
-    encoded_str
+    str.chars.chunk_while { |a, b| a == b }.map(&:join).collect do |subset|
+      subset.length > 1 ? subset.length.to_s + subset.chr : subset.chr
+    end.join
   end
 
   def self.decode(str)
