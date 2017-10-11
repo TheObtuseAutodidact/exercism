@@ -1,6 +1,15 @@
 class Array
   def accumulate
-    return enum_for(:accumulate) unless block_given?
+    unless block_given?
+      return Enumerator.new(length) do |y|
+        a = b = 1
+        loop do
+          y << a
+          a, b = b, a + b
+        end
+      end
+    end
+
     each_with_object([]) do |item, arr|
       arr << yield(item)
     end

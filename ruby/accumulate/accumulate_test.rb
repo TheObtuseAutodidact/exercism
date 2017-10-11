@@ -50,6 +50,12 @@ class ArrayTest < Minitest::Test
     assert_instance_of Enumerator, result
   end
 
+  def test_no_block_is_passed_and_enumerator_size_calculated
+    # skip
+    result = [1, 2, 3, 4, 5, 6, 7].accumulate.size
+    assert_equal 7, result
+  end
+
   # Problems in exercism evolve over time, as we find better ways to ask
   # questions.
   # The version number refers to the version of the problem you solved,
