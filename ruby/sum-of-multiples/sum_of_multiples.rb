@@ -7,7 +7,7 @@ class SumOfMultiples
     sum = []
     (1...limit).each do |num|
       @multiples.each do |multiple|
-        sum << num if (num % multiple).is_zero?
+        sum << num if (num % multiple).zero?
       end
     end
     sum.uniq.sum
