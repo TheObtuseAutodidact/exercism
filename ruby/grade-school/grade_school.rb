@@ -1,20 +1,17 @@
 class School
   def initialize
-    @students = {}
+    @students = Hash.new { |my_hash, key| my_hash[key] = [] }
   end
 
   def students(grade)
-    return [] unless @students[grade]
     @students[grade].sort
   end
 
   def add(student, grade)
-    @students[grade] ? @students[grade] << student : @students[grade] = [student]
-    @students
+    @students[grade] << student
   end
 
   def students_by_grade
-    return [] unless @students
     student_body = @students.map do |k, v|
       { grade: k, students: v.sort }
     end
