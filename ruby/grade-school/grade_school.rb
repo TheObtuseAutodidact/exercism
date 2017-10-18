@@ -12,10 +12,9 @@ class School
   end
 
   def students_by_grade
-    student_body = @students.map do |k, v|
-      { grade: k, students: v.sort }
+    @students.keys.sort.map do |grade_level|
+      { grade: grade_level, students: students(grade_level) }
     end
-    student_body.sort_by { |grade_hash| grade_hash[:grade] }
   end
 end
 
