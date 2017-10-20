@@ -1,7 +1,6 @@
 class PhoneNumber
   def self.clean(phone_number)
-    pn = phone_number.gsub(/\s+/, '')
-    pn = pn.chars.select(&:numeric?).join
+    pn = phone_number.chars.select(&:numeric?).join
     validate(pn)
   end
 
