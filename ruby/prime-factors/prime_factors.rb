@@ -3,15 +3,10 @@ class PrimeFactors
     prime_factors = []
     return prime_factors if num < 2
 
-    counter = 2
-    while counter <= num
-      if (num % counter).zero?
-        prime_factors << counter
-        num /= counter
-        counter = 2
-      else
-        counter += 1
-      end
+    while num > 1
+      n = (2..num).find { |divisor| (num % divisor).zero? }
+      prime_factors << n
+      num /= n
     end
     prime_factors
   end
