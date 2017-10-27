@@ -56,6 +56,16 @@ class ArrayTest < Minitest::Test
     assert_equal 7, result
   end
 
+  def test_empty_accumulation_with_hash
+    result = {}.accumulate { |k, v| k + v }
+    assert_equal [], result
+  end
+
+  def test_accumulation_strings_with_hash
+    result = {'a': 'b', 'c': 'd', 'e':'f'}.accumulate { |k, v| k.to_s + v }
+    assert_equal ['ab', 'cd', 'ef'], result
+  end
+
   # Problems in exercism evolve over time, as we find better ways to ask
   # questions.
   # The version number refers to the version of the problem you solved,

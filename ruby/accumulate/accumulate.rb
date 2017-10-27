@@ -1,4 +1,4 @@
-class Array
+module Enumerable
   def accumulate
     return enum_for(:accumulate) { size } unless block_given?
 
