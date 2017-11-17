@@ -1,8 +1,5 @@
 import string
 
 def is_isogram(word):
-    word = word.lower()
-    for char in word:
-        if word.count(char) != 1 and char in string.ascii_lowercase:
-            return False
-    return True
+    letters = [letter.lower() for letter in word if letter.isalpha()]
+    return len(letters) == len(set(letters))
