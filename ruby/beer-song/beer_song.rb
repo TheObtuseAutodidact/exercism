@@ -1,32 +1,33 @@
 class BeerSong
-  PHRASE_ONE = 'of beer on the wall'
-  PHRASE_TWO = 'of beer.'
-  TURN_AROUND = "No more bottles of beer on the wall, "\
-                "no more bottles of beer.\n"\
-                "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+  STANDARD = <<-TEXT
+%<number>s bottles of beer on the wall, %<number>s bottles of beer.
+Take one down and pass it around, %<number_less_one>s bottles of beer on the wall.
+  TEXT
+  TWO_BOTTLES = <<-TEXT
+%<number>s bottles of beer on the wall, %<number>s bottles of beer.
+Take one down and pass it around, %<number_less_one>s bottle of beer on the wall.
+  TEXT
 
-  def bottle_or_bottles(number_of_bottles)
-    number_of_bottles == 1 ? 'bottle' : 'bottles'
-  end
+  ONE_BOTTLE = <<-TEXT
+%<number>s bottle of beer on the wall, %<number>s bottle of beer.
+Take it down and pass it around, no more bottles of beer on the wall.
+  TEXT
 
-  def count_or_no_more(number_of_bottles)
-    number_of_bottles.zero? ? 'no more' : number_of_bottles
-  end
-
-  def one_or_it(number_of_bottles)
-    number_of_bottles == 1 ? 'it' : 'one'
-  end
+  ZERO_BOTTLES = <<-TEXT
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.
+  TEXT
 
   def verse(number_of_bottles)
-    if number_of_bottles > 0
-      "#{count_or_no_more(number_of_bottles)} #{bottle_or_bottles(number_of_bottles)} "\
-      "#{PHRASE_ONE}, #{count_or_no_more(number_of_bottles)} #{bottle_or_bottles(number_of_bottles)} "\
-      "#{PHRASE_TWO}\n"\
-      "Take #{one_or_it(number_of_bottles)} down and pass it around, "\
-      "#{count_or_no_more(number_of_bottles - 1)} #{bottle_or_bottles(number_of_bottles - 1)} #{PHRASE_ONE}.\n"
-    else
-      TURN_AROUND
-    end
+    text =
+      case number_of_bottles
+      when 3..99 then STANDARD
+      when 2 then TWO_BOTTLES
+      when 1 then ONE_BOTTLE
+      when 0 then ZERO_BOTTLES
+      end
+    text % { number: number_of_bottles,
+             number_less_one: (number_of_bottles - 1) % 100 }
   end
 
   def verses(x, y)
