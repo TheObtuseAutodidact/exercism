@@ -1,37 +1,42 @@
 class BeerSong
-  STANDARD = <<-TEXT
-%<number>s bottles of beer on the wall, %<number>s bottles of beer.
-Take one down and pass it around, %<number_less_one>s bottles of beer on the wall.
-  TEXT
-  TWO_BOTTLES = <<-TEXT
-%<number>s bottles of beer on the wall, %<number>s bottles of beer.
-Take one down and pass it around, %<number_less_one>s bottle of beer on the wall.
-  TEXT
+  STANDARD = <<~TEXT
+    %<number>s %<bottle_or_bottles_before>s of beer on the wall, %<number>s %<bottle_or_bottles_before>s of beer.
+    Take %<one_or_it>s down and pass it around, %<number_less_one>s %<bottle_or_bottles_after>s of beer on the wall.
+    TEXT
 
-  ONE_BOTTLE = <<-TEXT
-%<number>s bottle of beer on the wall, %<number>s bottle of beer.
-Take it down and pass it around, no more bottles of beer on the wall.
-  TEXT
-
-  ZERO_BOTTLES = <<-TEXT
-No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall.
-  TEXT
+  ZERO_BOTTLES = <<~TEXT
+    No more bottles of beer on the wall, no more bottles of beer.
+    Go to the store and buy some more, 99 bottles of beer on the wall.
+    TEXT
 
   def verse(number_of_bottles)
-    text =
-      case number_of_bottles
-      when 3..99 then STANDARD
-      when 2 then TWO_BOTTLES
-      when 1 then ONE_BOTTLE
-      when 0 then ZERO_BOTTLES
-      end
+    if (1..99).include?(number_of_bottles)
+      text = STANDARD
+    elsif number_of_bottles.zero?
+      text = ZERO_BOTTLES
+    end
     text % { number: number_of_bottles,
-             number_less_one: (number_of_bottles - 1) % 100 }
+             number_less_one: number_less_one(number_of_bottles),
+             bottle_or_bottles_before: bottle_or_bottles(number_of_bottles),
+             bottle_or_bottles_after: bottle_or_bottles(number_of_bottles - 1),
+             one_or_it: one_or_it(number_of_bottles) }
   end
 
   def verses(x, y)
     x.downto(y).collect { |bottle_num| verse(bottle_num) }.join("\n")
+  end
+
+  private
+  def bottle_or_bottles(number_of_bottles)
+    number_of_bottles == 1 ? "bottle" : "bottles"
+  end
+
+  def one_or_it(number_of_bottles)
+    number_of_bottles == 1 ? "it" : "one"
+  end
+
+  def number_less_one(number_of_bottles)
+    (number_of_bottles - 1) % 100 > 0 ? number_of_bottles - 1 : "no more"
   end
 end
 
