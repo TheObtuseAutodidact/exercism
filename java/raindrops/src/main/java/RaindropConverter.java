@@ -1,21 +1,26 @@
+import java.util.Map;
+
 class RaindropConverter {
+
+    final Map<Integer, String> plingPlangPlong = Map.of(
+        3, "Pling",
+        5, "Plang",
+        7, "Plong"
+    );
 
     String convert(int number) {
         String result = "";
-        if (number % 3 == 0) {
-            result += "Pling";
+
+        for(Integer key : plingPlangPlong.keySet()) {
+            if (modZero(number, key)) result += plingPlangPlong.get(key);
         }
-        if (number % 5 == 0) {
-            result += "Plang";
-        }
-        if (number % 7 == 0) {
-            result += "Plong";
-        }
-        if (result.equals("")) {
-            result = String.valueOf(number);
-        }
-        return result;
-    
+
+        return (result.length() > 0) ? result : String.valueOf(number);
+    }
+
+    Boolean modZero(int num, int divisor) {
+        return (num % divisor == 0);
     }
 
 }
+
